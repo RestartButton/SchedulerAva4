@@ -1,0 +1,51 @@
+#include <stdlib.h>
+#include <stdio.h>
+
+#include "schedule_rr.h"
+#include "CPU.h"
+#include "list.h"
+
+Node *readyQueue;
+int queueCount = 0;
+
+// add a task to the list 
+void add(char *name, int priority, int burst){
+   int id = 0;
+   Task * newTask = malloc(sizeof(Task));
+
+   newTask->name = name;
+   newTask->priority = priority;
+   newTask->burst = burst;
+   newTask->tid = id++;
+
+   insert(&readyQueue, newTask);
+   queueCount++;
+
+}
+
+// invoke the scheduler
+void schedule(){
+   int time = 0;
+
+   while(queueCount != 0){
+
+      Task *runningTask  =  getLast(readyQueue)->task;
+
+      run(runningTask, time);
+
+      runningTask->burst -= QUANTUM;
+
+      delete(&readyQueue, runningTask);
+
+      queueCount--;
+
+      if(runningTask->burst > 0){ 
+         insert(&readyQueue, runningTask);
+         queueCount++;
+      } else free(runningTask);
+
+
+      time += QUANTUM;
+   }
+
+}
