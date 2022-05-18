@@ -1,6 +1,8 @@
 /**
  * list data structure containing the tasks in the system
  */
+#ifndef LIST_H
+#define LIST_H
 
 #include "task.h"
 
@@ -14,3 +16,6 @@ void insert(Node **head, Task *task);
 void delete(Node **head, Task *task);
 void traverse(Node *head);
 Node* getLast(Node *head);
+Node* getCurrentInPriority(Node *head);
+
+#endif

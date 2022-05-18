@@ -29,7 +29,7 @@ void schedule(){
 
    while(queueCount != 0){
 
-      Task *runningTask  =  getLast(readyQueue)->task;
+      Task *runningTask  =  getCurrentInPriority(readyQueue)->task;
 
       run(runningTask, time);
 

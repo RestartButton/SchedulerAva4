@@ -67,3 +67,17 @@ Node* getLast(Node *head) {
     
     return temp;
 }
+
+Node* getCurrentInPriority(Node *head){
+    Node *temp = head;
+    Node *cNode = head;
+
+    while (temp != NULL) {
+        
+        if(temp->task->priority <= cNode->task->priority) cNode = temp;
+
+        temp = temp->next;
+    }
+    
+    return cNode;
+}
