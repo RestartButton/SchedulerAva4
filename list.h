@@ -17,5 +17,6 @@ void delete(Node **head, Task *task);
 void traverse(Node *head);
 Node* getLast(Node *head);
 Node* getCurrentInPriority(Node *head);
+Node* getBurst(Node *head, int quant_process);
 
 #endif

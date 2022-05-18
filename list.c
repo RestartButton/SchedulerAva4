@@ -81,3 +81,37 @@ Node* getCurrentInPriority(Node *head){
     
     return cNode;
 }
+
+Node* getBurst(Node *head, int quant_process) {
+    Node *temp = head;
+
+    int bt[quant_process-1];
+
+    int lower_bt;
+
+    for( int i = 0; i < quant_process; i++){
+
+        bt[i] = temp->task->burst;
+
+        temp = temp->next;
+
+    }
+
+    lower_bt = bt[0];
+
+    for (int i = 1; i < quant_process; i++){
+
+        if (bt[i] <  lower_bt){
+            lower_bt = bt[i];
+        }
+    }
+
+    temp = head;
+
+    while (temp != NULL) {
+        if(temp->task->burst == lower_bt) return temp;
+        temp = temp->next;
+    }
+    
+    return temp;
+}

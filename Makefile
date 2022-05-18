@@ -9,10 +9,17 @@ CFLAGS=-Wall
 clean:
 	rm -rf *.o
 	rm -rf rr
+	rm -rf sjf
 	rm -rf priority_rr
 
 rr: driver.o list.o CPU.o schedule_rr.o
 	$(CC) $(CFLAGS) -o rr driver.o schedule_rr.o list.o CPU.o
+
+sjf: driver.o list.o CPU.o schedule_sjf.o
+	$(CC) $(CFLAGS) -o sjf driver.o schedule_sjf.o list.o CPU.o
+
+schedule_sjf.o: schedule_sjf.c schedule_sjf.h
+	$(CC) $(CFLAGS) -c schedule_sjf.c
 
 priority_rr: driver.o list.o CPU.o schedule_rrp.o
 	$(CC) $(CFLAGS) -o priority_rr driver.o schedule_rrp.o list.o CPU.o
