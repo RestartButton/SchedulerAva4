@@ -1,7 +1,7 @@
 #include <stdlib.h>
 #include <stdio.h>
 
-#include "schedule_sjf.h"
+#include "schedulers.h"
 #include "CPU.h"
 #include "list.h"
 

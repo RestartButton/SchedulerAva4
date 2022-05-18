@@ -85,7 +85,7 @@ Node* getCurrentInPriority(Node *head){
 Node* getBurst(Node *head, int quant_process) {
     Node *temp = head;
 
-    int bt[quant_process-1];
+    int *bt = maloc((quant_process-1) * sizeof(int));
 
     int lower_bt;
 
