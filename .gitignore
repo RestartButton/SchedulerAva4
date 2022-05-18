@@ -1,2 +1,7 @@
 *.o
 rr.exe
+.vscode/settings.json
+.vscode/targets.log
+.vscode/dryrun.log
+.vscode/configurationCache.log
+
