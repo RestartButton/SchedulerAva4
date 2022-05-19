@@ -39,7 +39,7 @@ void schedule(){
 
          time += QUANTUM;
 
-      }while (runningTask->burst != 0);
+      }while (runningTask->burst >= 0);
      
       
       delete(&readyQueue, runningTask);

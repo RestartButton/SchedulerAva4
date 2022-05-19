@@ -17,6 +17,7 @@
 
 #define SIZE    100
 
+/*
 char* strsep(char** stringp, const char* delim)
 {
   char* start = *stringp;
@@ -36,7 +37,7 @@ char* strsep(char** stringp, const char* delim)
 
   return start;
 }
-
+*/
 
 int main(int argc, char *argv[])
 {
@@ -49,9 +50,9 @@ int main(int argc, char *argv[])
     int burst;
 
 
-    in = fopen(argv[1],"r");
+    in = fopen(argv[1], "r");
     
-    while (fgets(task,SIZE,in) != NULL) {
+    while (fgets(task, SIZE, in) != NULL) {
         
         temp = strdup(task);
         name = strsep(&temp,",");
@@ -59,7 +60,7 @@ int main(int argc, char *argv[])
         burst = atoi(strsep(&temp,","));
 
         // add the task to the scheduler's list of tasks
-        add(name,priority,burst);
+        add(name, priority, burst);
 
         free(temp);
     }

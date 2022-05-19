@@ -85,7 +85,8 @@ Node* getCurrentInPriority(Node *head){
 Node* getBurst(Node *head, int quant_process) {
     Node *temp = head;
 
-    int *bt = maloc((quant_process-1) * sizeof(int));
+    int bt[quant_process-1];
+    //int *bt = malloc((quant_process-1) * sizeof(int)); //ta com erro de fragmentação
 
     int lower_bt;
 
